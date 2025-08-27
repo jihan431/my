@@ -5,6 +5,7 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Login page styles */
@@ -15,6 +16,7 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
+  padding: 20px;
 }
 
 .login_form {
@@ -22,20 +24,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 300px;
+  width: min(400px, 90vw);
+  height: auto;
+  min-height: 300px;
   border: 1px solid #ccc;
   border-radius: 20px;
+  padding: 20px;
 }
 
 input[type="text"],
 input[type="password"] {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 40px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
   padding-left: 10px;
+  font-size: 16px; /* Prevent zoom on iOS */
 }
 
 input[type="text"]:focus,
@@ -45,7 +51,8 @@ input[type="password"]:focus {
 }
 
 button[type="submit"] {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 40px;
   border: none;
   border-radius: 5px;
@@ -70,7 +77,7 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-/* Birtday page styles */
+/* Birthday page styles */
 .song {
   visibility: hidden;
 }
@@ -83,6 +90,7 @@ button[type="submit"]:hover {
   text-align: center;
   visibility: hidden;
   width: 100vw;
+  padding: 0 10px;
 }
 
 .container > div {
@@ -90,33 +98,38 @@ button[type="submit"]:hover {
   right: 0;
   top: 20vh;
   position: absolute;
+  padding: 0 10px;
 }
 
 .one {
-  font-size: 4.5rem;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
 }
 
 .two {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: lighter;
+  line-height: 1.4;
 }
 
 .three {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
 }
 
 .four .text-box {
   border: 2px solid #ccc;
   border-radius: 20px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 15px;
   position: relative;
-  width: 600px;
+  width: min(600px, 90vw);
+  max-width: 100%;
 }
 
 .text-box p {
   margin: 0;
   text-align: left;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 1.5;
 }
 
 .text-box span {
@@ -126,28 +139,32 @@ button[type="submit"]:hover {
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 5px;
-  bottom: -50px;
+  bottom: -40px;
   right: 5px;
   position: absolute;
   color: #fff;
   padding: 0.5rem 1rem;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 .five p {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   position: absolute;
   left: 0;
   right: 0;
+  line-height: 1.4;
+  padding: 0 10px;
 }
 
 .idea-3 strong {
   border-radius: 3px;
   display: inline-block;
   padding: 3px 5px;
+  font-size: clamp(1rem, 3.5vw, 1.8rem);
 }
 
 .five .idea-5 {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
 }
 
 .idea-5 span,
@@ -157,7 +174,8 @@ button[type="submit"]:hover {
 }
 
 .idea-6 span {
-  font-size: 15rem;
+  font-size: clamp(8rem, 20vw, 15rem);
+  line-height: 1;
 }
 
 .six {
@@ -165,10 +183,11 @@ button[type="submit"]:hover {
   top: 10vh;
   z-index: 1;
 }
+
 .six img {
   display: inline-block;
-  height: 350px;
-  max-width: 100%;
+  height: clamp(250px, 40vh, 350px);
+  max-width: 90%;
   border-radius: 14px;
 }
 
@@ -176,21 +195,23 @@ button[type="submit"]:hover {
   position: absolute;
   left: 41.5%;
   top: -35%;
-  width: 60px;
+  width: clamp(40px, 8vw, 60px);
   rotate: 14deg;
 }
 
 .ballons img {
   display: inline-block;
   position: absolute;
+  width: clamp(30px, 6vw, 50px);
+  height: auto;
 }
 
 .ballons img:nth-child(even) {
-  left: -10%;
+  left: -5%;
 }
 
 .ballons img:nth-child(odd) {
-  right: -10%;
+  right: -5%;
 }
 
 .ballons img:nth-child(3n + 0) {
@@ -209,7 +230,7 @@ button[type="submit"]:hover {
   position: absolute;
   top: 0;
   visibility: hidden;
-  width: 25px;
+  width: clamp(15px, 4vw, 25px);
   z-index: -1;
 }
 
@@ -268,20 +289,24 @@ button[type="submit"]:hover {
 }
 
 .wish-hbd {
-  font-size: 3em;
+  font-size: clamp(2rem, 6vw, 3rem);
   margin: 0;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .wish h5 {
-  font-size: 2rem;
+  font-size: clamp(1rem, 3vw, 2rem);
   font-weight: lighter;
   margin: 10px 0 0;
+  line-height: 1.4;
 }
 
 .nine p {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
   font-weight: lighter;
+  line-height: 1.5;
+  padding: 0 10px;
 }
 
 #replay {
@@ -289,74 +314,105 @@ button[type="submit"]:hover {
   z-index: 3;
 }
 
-/* Media Queries */
-@media screen and (max-height: 1000px) {
+/* Enhanced Media Queries for Android */
+
+/* Small phones (320px - 480px) */
+@media screen and (max-width: 480px) {
+  .container > div {
+    padding: 0 15px;
+  }
+  
+  .four .text-box {
+    width: 95vw;
+    padding: 12px;
+  }
+  
+  .text-box .fake-btn {
+    bottom: -35px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+  }
+  
   .six .hat {
     left: 40%;
+    top: -30%;
+  }
+  
+  .ballons img {
+    width: clamp(25px, 5vw, 40px);
   }
 }
 
-@media screen and (max-height: 800px) {
+/* Medium phones (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
   .six .hat {
-    left: 37%;
+    left: 41%;
+    top: -32%;
   }
 }
 
-@media screen and (max-height: 700px) {
+/* Landscape orientation adjustments */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .container > div {
+    top: 5vh;
+  }
+  
+  .six {
+    top: 5vh;
+  }
+  
+  .six img {
+    height: clamp(200px, 35vh, 300px);
+  }
+  
   .six .hat {
-    left: 32%;
+    top: -25%;
   }
 }
 
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 32%;
+/* High DPI screens (Android with high pixel density) */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+  .six img {
+    image-rendering: -webkit-optimize-contrast;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .login_form{
-    width: 350px;
-    height: 250px;
+/* Very small screens */
+@media screen and (max-width: 360px) {
+  .login_form {
+    width: 95vw;
+    padding: 15px;
   }
-
+  
   .container {
-    width: 100%;
-    padding: 0 10px;
+    padding: 0 5px;
   }
-
-  .four .text-box {
-    width: 90%;
-  }
-
-  .text-box .fake-btn {
-    bottom: -50px;
-    right: 5px;
-  }
-
-  .idea-5 span {
-    display: block;
-  }
-
-  .idea-6 span {
-    font-size: 10rem;
-  }
-
+  
   .six .hat {
-    /* top: -20px; */
-    width: 50px;
+    left: 38%;
+    width: 35px;
   }
-
-  .wish-hbd {
-    font-size: 2.2em;
+  
+  .idea-6 span {
+    font-size: clamp(6rem, 18vw, 12rem);
   }
+}
 
-  .wish h5 {
-    font-size: .8rem;
+/* Extra adjustments for very tall screens */
+@media screen and (min-height: 800px) {
+  .container > div {
+    top: 15vh;
   }
+}
 
-  .nine p {
-    font-size: 1.5rem;
-    font-weight: lighter;
+/* Fix for Android Chrome address bar */
+@supports (-webkit-touch-callout: none) {
+  .container {
+    height: 100svh; /* Use small viewport height if supported */
+  }
+  
+  .seven .eight {
+    height: 100svh;
   }
 }
