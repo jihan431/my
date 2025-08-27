@@ -3,14 +3,14 @@
 // Animation GSAP timeline on load event
 window.addEventListener("load", () => {
   Swal.fire({
-    title: "Do you want to play music in the background?",
+    title: "hidupin musiknya yaa dek",
     // text: "You won't be able to revert this!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes",
-    cancelButtonText: "No",
+    confirmButtonText: "y",
+    cancelButtonText: "malas",
   }).then((result) => {
     if (result.isConfirmed) {
       document.querySelector(".song").play();
@@ -139,7 +139,7 @@ const animationTimeline = () => {
       color: "#fff",
     })
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=2.5")
-    .from(".idea-4", 0.7, ideaTextTrans)
+    .from(".idea-4", 0.3, ideaTextTrans)
     .to(".idea-4", 0.7, ideaTextTransLeave, "+=2.5")
     .from(
       ".idea-5",
@@ -197,7 +197,7 @@ const animationTimeline = () => {
     )
     .staggerFromTo(
       ".ballons img",
-      2.5,
+      1,
       {
         opacity: 0.9,
         y: 1400,
